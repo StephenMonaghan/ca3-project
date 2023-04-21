@@ -16,9 +16,7 @@ namespace Ca3
 
         static void Main(string[] args)
         {
-            string path = @"../../../faminefile.csv";
-        
-
+            string path = @"C:\Users\Stephen\OneDrive - Atlantic TU\CA3\ca3 project\faminefile.csv";
 
 
 
@@ -81,10 +79,10 @@ namespace Ca3
 
 
                     Passengers passenger = new Passengers(splitString[1], splitString[0], splitString[2], splitString[3], splitString[4], splitString[5], splitString[6],
-                       splitString[7], splitString[8], splitString[9]);//adding the data to the objects in a list
+                       splitString[7], splitString[8], splitString[9]);
 
                     passengers.Add(passenger);
-                    occupation = splitString[8];
+                    occupation = splitString[8];//adding the data to the objects in a list
 
 
 
@@ -101,51 +99,11 @@ namespace Ca3
             }
         }
 
-        static void OccupationReport( string path)
+        static void OccupationReport(string filepath)
         {
+            string path = @"C:\Users\Stephen\OneDrive - Atlantic TU\CA3\ca3 project\faminefile.csv";
+            List<Passengers> passengers = readingFile(path);
             
-            int counterSpinster = 0;
-            int counterCultivatorAndFarmer = 0;
-            int matron=0;
-            int dressMaker=0;
-
-
-
-           
-
-            using (StreamReader sr = File.OpenText(path))
-            {
-
-                string lineIn = sr.ReadLine();
-
-                while (lineIn != null)
-                {
-                    // if the line in is equal to any of the jobs the couter of that job is givin a +1 on its counter
-
-                    string[] splitString = lineIn.Split(',');
-                    if (lineIn.Contains("Spinster"))
-                    {
-                        counterSpinster++;
-                        
-
-                    }
-                    else if (lineIn.Contains("Cultivator or Farmer"))
-                    {
-                        counterCultivatorAndFarmer++;
-
-                    }
-                    else if (lineIn.Contains("Cultivator or Farmer"))
-                    {
-                        matron++;
-                    }
-                        lineIn = sr.ReadLine();
-                }
-
-                Console.WriteLine($"this is how many spinsters {counterSpinster}");
-                Console.WriteLine($"this is how many Cultivator and farmers {counterCultivatorAndFarmer}");
-            }
-
-
 
 
 
@@ -153,15 +111,12 @@ namespace Ca3
 
 
 
-
-
-
         static void ShipReports(string filePath)
         {
-            string path = @"../../../faminefile.csv";
+            string path = @"C:\Users\Stephen\OneDrive - Atlantic TU\CA3\ca3 project\faminefile.csv";
             List<Passengers> passengers = readingFile(path);
 
-            
+            int coounter = 0;
             string menuChoice2 = "0";
             int menuInt;
             Console.WriteLine("ship report");//menu  for the ship report
@@ -185,12 +140,13 @@ namespace Ca3
                 {
                     
                     string lineIn = sr.ReadLine();
-
+                    
                     while (lineIn != null)
                     {
 
 
                         string[] splitString = lineIn.Split(',');
+                      
                         if (lineIn.Contains("MARY HARRINGTON  187  07-06-1848  102"))
                         {
                             i++;
