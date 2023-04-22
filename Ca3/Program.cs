@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Xml;
-using static Ca3.Passengers;
+using static Ca3.PassengersData;
 
 namespace Ca3
 //stephen Monaghan
@@ -14,9 +14,10 @@ namespace Ca3
 
 
 
+      static  string path = @"../../../faminefile.csv";
         static void Main(string[] args)
         {
-            string path = @"../../../faminefile.csv";
+          
         
 
 
@@ -55,19 +56,19 @@ namespace Ca3
                   {
                      ShipReports(path);
                  }
-                  else if(MenuChoice == 2)
+                else if(MenuChoice == 2)
                   {
-                      OccupationReport(path);
-                   }
+                    OccupationReport(path);
+                  }
                 
 
             }
         }
 
-        static List<Passengers> readingFile(string path) //method so i can use  the objects through out the program
+        static List<PassengersData> GettingObjects(string path) //method so i can use  the objects through out the program
         {
-            string occupation = "";
-            List<Passengers> passengers = new List<Passengers>();
+           
+            List<PassengersData> passengers = new List<PassengersData>();
             using (StreamReader sr = File.OpenText(path))
 
             {
@@ -80,11 +81,11 @@ namespace Ca3
 
 
 
-                    Passengers passenger = new Passengers(splitString[1], splitString[0], splitString[2], splitString[3], splitString[4], splitString[5], splitString[6],
+                    PassengersData passenger = new PassengersData(splitString[1], splitString[0], splitString[2], splitString[3], splitString[4], splitString[5], splitString[6],
                        splitString[7], splitString[8], splitString[9]);//adding the data to the objects in a list
 
                     passengers.Add(passenger);
-                    occupation = splitString[8];
+              
 
 
 
@@ -101,13 +102,28 @@ namespace Ca3
             }
         }
 
-        static void OccupationReport( string path)
+        static void OccupationReport( )
         {
             
             int counterSpinster = 0;
             int counterCultivatorAndFarmer = 0;
             int matron=0;
             int dressMaker=0;
+            int labourerCount = 0;
+            int childCount = 0;
+            int fishermanCount = 0;
+            int nonecount = 0;
+            int chaimberMaidCount=0;
+            int smithCount =0;
+            int masonCount = 0;
+            int bakerCount = 0;
+            int tannerCount = 0;
+            int infantCount = 0;
+            int carpenterCount = 0;
+            int studentCount = 0;
+            int clerkCount = 0;
+
+
 
 
 
@@ -134,11 +150,19 @@ namespace Ca3
                         counterCultivatorAndFarmer++;
 
                     }
-                    else if (lineIn.Contains("Cultivator or Farmer"))
+                    else if (lineIn.Contains("Matron"))
                     {
                         matron++;
                     }
-                        lineIn = sr.ReadLine();
+                    else if (lineIn.Contains("Dressmaker"))
+                    {
+                        dressMaker++;
+                    }
+                    else if (lineIn.Contains("Laborer (Ital. 'operaia') or Workman/Woman"))
+                    {
+                        labourerCount++;
+                    }
+                    lineIn = sr.ReadLine();
                 }
 
                 Console.WriteLine($"this is how many spinsters {counterSpinster}");
@@ -156,10 +180,10 @@ namespace Ca3
 
 
 
-        static void ShipReports(string filePath)
+        static void ShipReports()
         {
-            string path = @"../../../faminefile.csv";
-            List<Passengers> passengers = readingFile(path);
+           
+            List<PassengersData> passengers = GettingObjects(path);
 
             
             string menuChoice2 = "0";

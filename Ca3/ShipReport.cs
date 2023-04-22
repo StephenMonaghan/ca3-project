@@ -9,7 +9,7 @@ namespace Ca3
     
 
     
-      public  class Passengers
+      public  class PassengersData
         {
             private string _firstName;
             private string _lastName;
@@ -86,7 +86,7 @@ namespace Ca3
 
             }
 
-            public Passengers (string firstName , string lastName,string gender,string age,string nativeCountry,string occupation,string destination,
+            public PassengersData (string firstName , string lastName,string gender,string age,string nativeCountry,string occupation,string destination,
                 string embarkationPort,string mainifestIdentification, string  arivalDate)
             {
                 _firstName=firstName;
