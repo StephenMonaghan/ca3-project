@@ -52,19 +52,19 @@ namespace Ca3
                 MenuChoice = int.Parse(Console.ReadLine());
 
                 if (MenuChoice == 1)
-                {
-                    ShipReports(path);
-                }
-                else if(MenuChoice == 2)
-                {
-                    OccupationReport(path);
-                }
-
+                  {
+                     ShipReports(path);
+                 }
+                  else if(MenuChoice == 2)
+                  {
+                      OccupationReport(path);
+                   }
+                
 
             }
         }
 
-        static List<Passengers> readingFile(string path)
+        static List<Passengers> readingFile(string path) //method so i can use  the objects through out the program
         {
             string occupation = "";
             List<Passengers> passengers = new List<Passengers>();
