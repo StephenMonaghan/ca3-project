@@ -107,7 +107,7 @@ namespace Ca3
             
             int counterSpinster = 0;
             int counterCultivatorAndFarmer = 0;
-            int matron=0;
+            int matronCount=0;
             int dressMaker=0;
             int labourerCount = 0;
             int childCount = 0;
@@ -122,12 +122,16 @@ namespace Ca3
             int carpenterCount = 0;
             int studentCount = 0;
             int clerkCount = 0;
+            int coachmanCount = 0;
+            int immigrantCount = 0;
 
 
 
 
 
-           
+
+
+
 
             using (StreamReader sr = File.OpenText(path))
             {
@@ -152,22 +156,105 @@ namespace Ca3
                     }
                     else if (lineIn.Contains("Matron"))
                     {
-                        matron++;
+                        matronCount++;
                     }
                     else if (lineIn.Contains("Dressmaker"))
                     {
                         dressMaker++;
                     }
+                    else if (lineIn.Contains("Child"))
+                    {
+                        childCount++;
+                    }
                     else if (lineIn.Contains("Laborer (Ital. 'operaia') or Workman/Woman"))
                     {
                         labourerCount++;
                     }
+                    else if (lineIn.Contains("Fisher Man"))
+                    {
+                        fishermanCount++;
+                    }
+                    else if (lineIn.Contains("None"))
+                    {
+                        nonecount++;
+                    }
+                    else if (lineIn.Contains("Chamber Maid or Maid or Servant"))
+                    {
+                        chaimberMaidCount++;
+                    }
+                    else if (lineIn.Contains("Smith"))
+                    {
+                        smithCount++;
+                    }
+                    else if (lineIn.Contains("Mason"))
+                    {
+                        masonCount++;
+                    }
+                    else if (lineIn.Contains("Baker or Macaroni Maker"))
+                    {
+                        bakerCount++;
+                    }
+                    else if (lineIn.Contains("Tanner or Gerber"))
+                    {
+                        tannerCount++;
+                    }
+                    else if (lineIn.Contains("Infant"))
+                    {
+                        infantCount++;
+                    }
+                    else if (lineIn.Contains("Carpenter"))
+                    {
+                        carpenterCount++;
+                    }
+                    else if (lineIn.Contains("Student"))
+                    {
+                        studentCount++;
+                    }
+                    else if (lineIn.Contains("Clerk"))
+                    {
+                        clerkCount++;
+                    }
+                    else if (lineIn.Contains("Coachman/Coach Driver or Driver"))
+                    {
+                        coachmanCount++;
+                    }
+                    else if (lineIn.Contains("Immigrant"))
+                    {
+                        immigrantCount++;
+                    }
+
+
+
+
                     lineIn = sr.ReadLine();
+                    
                 }
 
                 Console.WriteLine($"this is how many spinsters {counterSpinster}");
                 Console.WriteLine($"this is how many Cultivator and farmers {counterCultivatorAndFarmer}");
+                Console.WriteLine($"this is how many matrons {matronCount}");
+                Console.WriteLine($"this is how many dressmakers {dressMaker}");
+                Console.WriteLine($"this is how many children {childCount}");
+                Console.WriteLine($"this is how many labourers {labourerCount}");
+                Console.WriteLine($"this is how many fishermen {fishermanCount}");
+                Console.WriteLine($"this is how many people withought a profession {nonecount}");
+                Console.WriteLine($"this is how many caimbermaids  {chaimberMaidCount}");
+                Console.WriteLine($"this is how many smiths  {smithCount}");
+                Console.WriteLine($"this is how many masons   {masonCount}");
+                Console.WriteLine($"this is how many bakers  {bakerCount}");
+                Console.WriteLine($"this is how many tanners  {tannerCount}");
+                Console.WriteLine($"this is how many infants there are  {infantCount}");
+                Console.WriteLine($"this is how many carpenters {carpenterCount}");
+                Console.WriteLine($"this is how many students  {studentCount}");
+                Console.WriteLine($"this is how many clerks {clerkCount}");
+                Console.WriteLine($"this is how many coachmen  {coachmanCount}");
+                Console.WriteLine($"this is how many imigrants  {immigrantCount}");
+
+
+
+
             }
+        }
 
 
 
