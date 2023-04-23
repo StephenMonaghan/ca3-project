@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using System.Security;
 using System.Xml;
+using System.Text.RegularExpressions;
 using static Ca3.PassengersData;
 
 namespace Ca3
@@ -54,7 +56,7 @@ namespace Ca3
 
                 if (MenuChoice == 1)
                   {
-                     ShipReports(path);
+                     ShipReportsData(path);
                  }
                 else if(MenuChoice == 2)
                   {
@@ -85,7 +87,7 @@ namespace Ca3
 
 
 
-                    PassengersData passenger = new PassengersData(splitString[1], splitString[0], splitString[2], splitString[3], splitString[4], splitString[5], splitString[6],
+                    PassengersData passenger = new PassengersData(splitString[1], splitString[0], splitString[3], splitString[2], splitString[4], splitString[5], splitString[6],
                        splitString[7], splitString[8], splitString[9]);//adding the data to the objects in a list
 
                     passengers.Add(passenger);
@@ -107,16 +109,51 @@ namespace Ca3
         }
         static void AgeReport(string path)
         {
-            Console.WriteLine("hiios");
-            List<PassengersData> passengers = GettingObjects(path);
+            //List<PassengersData> passengers = GettingObjects(path);
+            //int i= 0;
+           
+            // Regex re = new Regex(@"\d");
+         
+
+
+          //  while (i < passengers.Count)
+          //  {
+            //    if (passengers[i].Age.getLength() > 19) 
+           //     { 
+                //these are the infants
+             //   }
+            //    else
+            //    {
+                    //only passengers with a numeric age will pass this 
+
+           //       int  passengerAge= re.match(passengers[i].Age);
+            //    }
+          
+           // }
+
+
+
+           
             using (StreamReader sr = File.OpenText(path))
             {
+                string lineIn = sr.ReadLine();
+                while (lineIn != null)
+                {
+                    
+                   
+                    Console.WriteLine($" {passengers[i].Age}");
+                  
+                    i++;
+                    
+                }
+                lineIn = sr.ReadLine();
 
+                
             }
 
         }
 
-        static void OccupationReport( )
+        static void OccupationReport(string path )
         {
             
             int counterSpinster = 0;
@@ -270,25 +307,14 @@ namespace Ca3
             }
         }
 
-
-
-
-
-        }
-
-
-
-
-
-
-        static void ShipReports(string path)
+        static void ShipReportsData(string path)
         {
-          List<PassengersData> passengers = GettingObjects(path);
+            List<PassengersData> passengers = GettingObjects(path);
 
 
 
 
-          string menuChoice2 = "0";
+            string menuChoice2 = "0";
             int menuInt;
             Console.WriteLine("ship report");//menu  for the ship report
             Console.WriteLine("1.The Mary Harrington");
@@ -309,7 +335,7 @@ namespace Ca3
             {
                 using (StreamReader sr = File.OpenText(path))
                 {
-                    
+
                     string lineIn = sr.ReadLine();
 
                     while (lineIn != null)
@@ -414,5 +440,16 @@ namespace Ca3
         }
 
 
+
     }
+
+
+
+
+
+
+       
+
+
+    
 }

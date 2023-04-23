@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Compile Remove="Program-LAPTOP-IAU08IBC.cs" />
-    <Compile Remove="ShipReport.cs" />
   </ItemGroup>
 
 </Project>
