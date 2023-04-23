@@ -60,7 +60,11 @@ namespace Ca3
                   {
                     OccupationReport(path);
                   }
-                
+                else if (MenuChoice == 3)
+                {
+                    AgeReport(path);
+                }
+
 
             }
         }
@@ -100,6 +104,16 @@ namespace Ca3
 
 
             }
+        }
+        static void AgeReport(string path)
+        {
+            Console.WriteLine("hiios");
+            List<PassengersData> passengers = GettingObjects(path);
+            using (StreamReader sr = File.OpenText(path))
+            {
+
+            }
+
         }
 
         static void OccupationReport( )
@@ -267,13 +281,14 @@ namespace Ca3
 
 
 
-        static void ShipReports()
+        static void ShipReports(string path)
         {
-           
-            List<PassengersData> passengers = GettingObjects(path);
+          List<PassengersData> passengers = GettingObjects(path);
 
-            
-            string menuChoice2 = "0";
+
+
+
+          string menuChoice2 = "0";
             int menuInt;
             Console.WriteLine("ship report");//menu  for the ship report
             Console.WriteLine("1.The Mary Harrington");
