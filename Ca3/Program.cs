@@ -129,27 +129,7 @@ namespace Ca3
            //       int  passengerAge= re.match(passengers[i].Age);
             //    }
           
-           // }
-
-
-
-           
-            using (StreamReader sr = File.OpenText(path))
-            {
-                string lineIn = sr.ReadLine();
-                while (lineIn != null)
-                {
-                    
-                   
-                    Console.WriteLine($" {passengers[i].Age}");
-                  
-                    i++;
-                    
-                }
-                lineIn = sr.ReadLine();
-
-                
-            }
+           //}
 
         }
 
